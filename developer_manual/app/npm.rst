@@ -72,3 +72,5 @@ test command(s) like this:
 		"test": "mocha-webpack --webpack-config webpack.test.js --require src/tests/setup.js \"src/tests/**/*.spec.js\""
 	  }
 	}
+
+More info about this command can be found in the `npm-test documentation https://docs.npmjs.com/cli/test`_.
