@@ -23,11 +23,11 @@ For apps that use webpack, this might look like this:
 	{
 	  "name": "myapp",
 	  "scripts": {
-		"build": "webpack --progress --config webpack.prod.js"
+		  "build": "webpack --progress --config webpack.prod.js"
 	  },
 	  "devDependencies": {
-		"webpack": "^4.26.1",
-		"webpack-cli": "^3.1.2",
+		  "webpack": "^4.26.1",
+		  "webpack-cli": "^3.1.2",
 	  }
 	}
 
@@ -35,13 +35,14 @@ You can then run ``npm build`` in your app's root directory to invoke the build 
 
 See the `npm-build docs https://docs.npmjs.com/cli/build`_ for more info.
 
-npm run dev
------------
+npm run watch
+-------------
 
 Since building the release version of JavaScript scripts can be slow, apps often have a dedicated
-build step for development that builds faster and enables debug output.
+build step for development that builds faster and enables debug output. Additionally, it instructs
+the bundler to listen to file changes and (incrementally) rebuild the project.
 
-This command should be added to ``package.json`` as ``dev`` script:
+This command should be added to ``package.json`` as ``watch`` script:
 
 .. code-block:: json
 
@@ -49,11 +50,11 @@ This command should be added to ``package.json`` as ``dev`` script:
 	  "name": "myapp",
 	  "scripts": {
 		"build": "webpack --progress --config webpack.prod.js",
-        "dev": "webpack --progress --config webpack.dev.js"
+      "watch": "webpack --progress --config webpack.dev.js --watch"
 	  },
 	  "devDependencies": {
-		"webpack": "^4.26.1",
-		"webpack-cli": "^3.1.2",
+		  "webpack": "^4.26.1",
+		  "webpack-cli": "^3.1.2",
 	  }
 	}
 
@@ -69,8 +70,32 @@ test command(s) like this:
 
 	{
 	  "scripts": {
-		"test": "mocha-webpack --webpack-config webpack.test.js --require src/tests/setup.js \"src/tests/**/*.spec.js\""
+		  "test": "mocha-webpack --webpack-config webpack.test.js --require src/tests/setup.js \"src/tests/**/*.spec.js\""
 	  }
 	}
 
 More info about this command can be found in the `npm-test documentation https://docs.npmjs.com/cli/test`_.
+
+npm run lint (optional)
+-----------------------
+
+Nextcloud apps that use linting tools for consistent code formatting typically add a ``lint`` script to their
+``package.json``:
+
+.. code-block:: json
+
+	{
+	  "scripts": {
+		  "lint": "eslint --ext .js,.vue src"
+	  }
+	}
+
+If style linting is a separate script, ``stylelint`` shall be used as conventional script name:
+
+.. code-block:: json
+
+	{
+	  "scripts": {
+		  "stylelint": "stylelint src"
+	  }
+	}
