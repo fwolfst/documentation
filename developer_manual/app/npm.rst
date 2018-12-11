@@ -20,16 +20,16 @@ For apps that use webpack, this might look like this:
 
 .. code-block:: json
 
-	{
-	  "name": "myapp",
-	  "scripts": {
-		  "build": "webpack --progress --config webpack.prod.js"
-	  },
-	  "devDependencies": {
-		  "webpack": "^4.26.1",
-		  "webpack-cli": "^3.1.2",
-	  }
-	}
+  {
+    "name": "myapp",
+    "scripts": {
+      "build": "webpack --progress --config webpack.prod.js"
+    },
+    "devDependencies": {
+      "webpack": "^4.26.1",
+      "webpack-cli": "^3.1.2",
+    }
+  }
 
 You can then run ``npm build`` in your app's root directory to invoke the build process.
 
@@ -46,17 +46,17 @@ This command should be added to ``package.json`` as ``watch`` script:
 
 .. code-block:: json
 
-	{
-	  "name": "myapp",
-	  "scripts": {
-		"build": "webpack --progress --config webpack.prod.js",
+  {
+    "name": "myapp",
+    "scripts": {
+    "build": "webpack --progress --config webpack.prod.js",
       "watch": "webpack --progress --config webpack.dev.js --watch"
-	  },
-	  "devDependencies": {
-		  "webpack": "^4.26.1",
-		  "webpack-cli": "^3.1.2",
-	  }
-	}
+    },
+    "devDependencies": {
+      "webpack": "^4.26.1",
+      "webpack-cli": "^3.1.2",
+    }
+  }
 
 The development build is invoked with ``npm run dev``.
 
@@ -68,11 +68,11 @@ test command(s) like this:
 
 .. code-block:: json
 
-	{
-	  "scripts": {
-		  "test": "mocha-webpack --webpack-config webpack.test.js --require src/tests/setup.js \"src/tests/**/*.spec.js\""
-	  }
-	}
+  {
+    "scripts": {
+      "test": "mocha-webpack --webpack-config webpack.test.js --require src/tests/setup.js \"src/tests/**/*.spec.js\""
+    }
+  }
 
 More info about this command can be found in the `npm-test documentation https://docs.npmjs.com/cli/test`_.
 
@@ -84,18 +84,18 @@ Nextcloud apps that use linting tools for consistent code formatting typically a
 
 .. code-block:: json
 
-	{
-	  "scripts": {
-		  "lint": "eslint --ext .js,.vue src"
-	  }
-	}
+  {
+    "scripts": {
+      "lint": "eslint --ext .js,.vue src"
+    }
+  }
 
 If style linting is a separate script, ``stylelint`` shall be used as conventional script name:
 
 .. code-block:: json
 
-	{
-	  "scripts": {
-		  "stylelint": "stylelint src"
-	  }
-	}
+  {
+    "scripts": {
+      "stylelint": "stylelint src"
+    }
+  }
